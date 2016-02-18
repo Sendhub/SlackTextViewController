@@ -1403,7 +1403,10 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
                                                   bounce:NO
                                                  options:(curve<<16)|UIViewAnimationOptionLayoutSubviews|UIViewAnimationOptionBeginFromCurrentState
                                               animations:animations
-                                              completion:NULL];
+                                              completion:^(BOOL finished) {
+                                                  // Invalidate the layout. 
+                                                  [self.collectionView.collectionViewLayout invalidateLayout];
+                                              }];
     }
     else {
         animations();
