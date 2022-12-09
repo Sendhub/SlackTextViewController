@@ -1,17 +1,9 @@
 //
-//   Copyright 2014-2016 Slack Technologies, Inc.
+//  SlackTextViewController
+//  https://github.com/slackhq/SlackTextViewController
 //
-//   Licensed under the Apache License, Version 2.0 (the "License");
-//   you may not use this file except in compliance with the License.
-//   You may obtain a copy of the License at
-//
-//       http://www.apache.org/licenses/LICENSE-2.0
-//
-//   Unless required by applicable law or agreed to in writing, software
-//   distributed under the License is distributed on an "AS IS" BASIS,
-//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//   See the License for the specific language governing permissions and
-//   limitations under the License.
+//  Copyright 2014-2016 Slack Technologies, Inc.
+//  Licence: MIT-Licence
 //
 
 #import <UIKit/UIKit.h>
@@ -31,6 +23,8 @@ typedef NS_ENUM(NSUInteger, SLKCounterPosition) {
     SLKCounterPositionBottom
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** @name A custom tool bar encapsulating messaging controls. */
 @interface SLKTextInputbar : UIToolbar
 
@@ -40,10 +34,13 @@ typedef NS_ENUM(NSUInteger, SLKCounterPosition) {
  For iPhone 5 & 6   (>=568pts): 6 lines
  For iPad           (>=768pts): 8 lines
  */
-@property (nonatomic, strong) SLKTextView *textView;
+@property (nonatomic, readonly, strong) SLKTextView *textView;
+
+/** Optional view to host outlets under the text view, adjusting its height based on its subviews. Non-visible by default. Subviews' layout should be configured using auto-layout as well. */
+@property (nonatomic, readonly, strong) UIView *contentView;
 
 /** The custom input accessory view, used as empty achor view to detect the keyboard frame. */
-@property (nonatomic, strong) SLKInputAccessoryView *inputAccessoryView;
+@property (nonatomic, readonly, strong) SLKInputAccessoryView *inputAccessoryView;
 
 /** The left action button action. */
 @property (nonatomic, strong) UIButton *leftButton;
@@ -131,6 +128,9 @@ typedef NS_ENUM(NSUInteger, SLKCounterPosition) {
 /** The label used to display the character counts. */
 @property (nonatomic, readonly) UILabel *charCountLabel;
 
+/** The label used to display the sms  fragment counts. */
+@property (nonatomic, readonly) UILabel *smsCountLabel;
+
 /** The maximum character count allowed. If larger than 0, a character count label will be displayed on top of the right button. Default is 0, which means limitless.*/
 @property (nonatomic, readwrite) NSUInteger maxCharCount;
 
@@ -150,3 +150,6 @@ typedef NS_ENUM(NSUInteger, SLKCounterPosition) {
 @property (nonatomic, strong, readwrite) UIColor *charCountLabelWarningColor;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
