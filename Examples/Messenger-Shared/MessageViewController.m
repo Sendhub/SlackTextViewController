@@ -13,8 +13,9 @@
 #import "Message.h"
 
 #import <LoremIpsum/LoremIpsum.h>
+#import "HorizontalTagList.h"
 
-#define DEBUG_CUSTOM_TYPING_INDICATOR 0
+#define DEBUG_CUSTOM_TYPING_INDICATOR 1
 #define DEBUG_CUSTOM_BOTTOM_VIEW 0
 
 @interface MessageViewController ()
@@ -70,6 +71,8 @@
 #if DEBUG_CUSTOM_TYPING_INDICATOR
     // Register a UIView subclass, conforming to SLKTypingIndicatorProtocol, to use a custom typing indicator view.
     [self registerClassForTypingIndicatorView:[TypingIndicatorView class]];
+    [self registerClassForQuickResponseView:[HorizontalTagList class]];
+
 #endif
 }
 
@@ -140,6 +143,20 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if ([self canShowQuickResponse]) {
+        
+#if DEBUG_CUSTOM_TYPING_INDICATOR
+        __block HorizontalTagList *listView = (HorizontalTagList *)self.quickResponseProxyView;
+        
+        [listView setHorizontalTagList];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [listView refreshTagsWithArray:@[@"TEST",@"TESTED",@"TESTING"]];
+        });
+        //        [self.view bringSubviewToFront:listView];
+#else
+        [self.quickResponseView insertUsername:[LoremIpsum name]];
+#endif
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

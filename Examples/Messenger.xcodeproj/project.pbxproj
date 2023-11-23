@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DC101E12B0E40AA000F6D2F /* HorizontalTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC101DF2B0E40AA000F6D2F /* HorizontalTagList.m */; };
+		3DC101E22B0E40AA000F6D2F /* HorizontalTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC101DF2B0E40AA000F6D2F /* HorizontalTagList.m */; };
+		3DC101E32B0E40AA000F6D2F /* HorizontalTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC101DF2B0E40AA000F6D2F /* HorizontalTagList.m */; };
+		3DC101E42B0E40AA000F6D2F /* HorizontalTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC101DF2B0E40AA000F6D2F /* HorizontalTagList.m */; };
 		4F3256191AA77386008C1DD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3256161AA77386008C1DD9 /* AppDelegate.m */; };
 		4F32561B1AA77386008C1DD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3256181AA77386008C1DD9 /* main.m */; };
 		4F32561C1AA77427008C1DD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF6C19F011D0007A3D4A /* AppDelegate.m */; };
@@ -60,6 +64,8 @@
 		013374414F8685A8D16AF797 /* Pods-Messenger-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger-Swift.release.xcconfig"; path = "Target Support Files/Pods-Messenger-Swift/Pods-Messenger-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		2CBD547962995303FE912FFE /* Pods-Messenger-iPad-Sheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger-iPad-Sheet.release.xcconfig"; path = "Target Support Files/Pods-Messenger-iPad-Sheet/Pods-Messenger-iPad-Sheet.release.xcconfig"; sourceTree = "<group>"; };
 		2D8D4DB5006F9EF52FC586D8 /* Pods-Messenger-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger-Swift.debug.xcconfig"; path = "Target Support Files/Pods-Messenger-Swift/Pods-Messenger-Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		3DC101DF2B0E40AA000F6D2F /* HorizontalTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalTagList.m; sourceTree = "<group>"; };
+		3DC101E02B0E40AA000F6D2F /* HorizontalTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalTagList.h; sourceTree = "<group>"; };
 		43D709E58370D6CFF3CE6C74 /* libPods-Messenger-Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Messenger-Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1AD51E19E727750027043E /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		4F1AD51F19E727750027043E /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
@@ -321,6 +327,8 @@
 				4FF04E581B3F7A04004C3BED /* TypingIndicatorView.m */,
 				4F8ADA751A68C37400023752 /* Message.h */,
 				4F8ADA761A68C37400023752 /* Message.m */,
+				3DC101E02B0E40AA000F6D2F /* HorizontalTagList.h */,
+				3DC101DF2B0E40AA000F6D2F /* HorizontalTagList.m */,
 				4F86BF8E19F01234007A3D4A /* Images.xcassets */,
 				4F86BFE719F05519007A3D4A /* Bridge-Header.h */,
 			);
@@ -435,7 +443,7 @@
 				ORGANIZATIONNAME = "Slack Technologies, Inc.";
 				TargetAttributes = {
 					4F3EDB48199ED00F004C15D6 = {
-						DevelopmentTeam = S6MX3RA9ZM;
+						DevelopmentTeam = 83KHT8Z5H8;
 					};
 					4F86BF6419F011D0007A3D4A = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -609,6 +617,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC101E12B0E40AA000F6D2F /* HorizontalTagList.m in Sources */,
 				4F86BF9719F01234007A3D4A /* MessageViewController.m in Sources */,
 				4F3EDB5D199ED00F004C15D6 /* AppDelegate.m in Sources */,
 				4F8ADA771A68C37400023752 /* Message.m in Sources */,
@@ -623,6 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC101E22B0E40AA000F6D2F /* HorizontalTagList.m in Sources */,
 				4F9DFA7F1AD4EDB900841D98 /* ViewController.m in Sources */,
 				71BE10301A76C4890083EE32 /* MessageTextView.m in Sources */,
 				4F86BF9819F01234007A3D4A /* MessageViewController.m in Sources */,
@@ -637,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC101E32B0E40AA000F6D2F /* HorizontalTagList.m in Sources */,
 				9F4466C31C9A1B6B0001609A /* MessageTableViewCell.m in Sources */,
 				F5CD59211C9FE0EC00DD9A4E /* MessageViewController.swift in Sources */,
 				9F4466C51C9A1B6B0001609A /* MessageTextView.m in Sources */,
@@ -653,6 +664,7 @@
 			files = (
 				71BE10281A72F3E50083EE32 /* MessageViewController.m in Sources */,
 				71BE10291A72F3E50083EE32 /* MessageTableViewCell.m in Sources */,
+				3DC101E42B0E40AA000F6D2F /* HorizontalTagList.m in Sources */,
 				71BE102B1A72F3E50083EE32 /* Message.m in Sources */,
 				4F32561B1AA77386008C1DD9 /* main.m in Sources */,
 				4F3256191AA77386008C1DD9 /* AppDelegate.m in Sources */,
@@ -803,11 +815,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 83KHT8Z5H8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Messenger-Programatic/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.slack.Messenger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inforeach.SendhubMobile;
 				PRODUCT_NAME = Messenger;
 				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -826,11 +839,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 83KHT8Z5H8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Messenger-Programatic/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.slack.Messenger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inforeach.SendhubMobile;
 				PRODUCT_NAME = Messenger;
 				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
