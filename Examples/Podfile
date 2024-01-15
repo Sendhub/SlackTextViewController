@@ -6,6 +6,7 @@ platform :ios, '12.0'
 def shared_pods
     pod 'SlackTextViewController', :path => '../SlackTextViewController.podspec'
     pod 'LoremIpsum'
+    pod "TTGTagCollectionView"
 end
 
 target 'Messenger-Programatic' do
