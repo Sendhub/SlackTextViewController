@@ -2352,7 +2352,10 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
 {
     self.textInputbarHC.constant = self.textInputbar.hidden ? 0.0 : self.textInputbar.minimumInputbarHeight;
     self.scrollViewHC.constant = [self slk_appropriateScrollViewHeight];
-    self.keyboardHC.constant = [self slk_appropriateKeyboardHeightFromRect:CGRectNull];
+    
+    if( self.keyboardHC.constant == 0 ){
+        self.keyboardHC.constant = [self slk_appropriateKeyboardHeightFromRect:CGRectNull];
+    }
     
     if (_textInputbar.isEditing) {
         self.textInputbarHC.constant += self.textInputbar.editorContentViewHeight;
