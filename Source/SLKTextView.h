@@ -60,6 +60,9 @@ UIKIT_EXTERN NSString * const SLKTextViewPastedItemData;
 /** The current displayed number of lines. */
 @property (nonatomic, readonly) NSUInteger numberOfLines;
 
+/** The default displayed number of lines. */
+@property (nonatomic, readwrite) NSUInteger defaultNumberOfLineDisplay;
+
 /** The supported media types allowed to be pasted in the text view, such as images or videos. Default is None. */
 @property (nonatomic) SLKPastableMediaType pastableMediaTypes;
 

@@ -94,7 +94,7 @@ static NSString *const SLKTextViewGenericFormattingSelectorPrefix = @"slk_format
 
 - (CGSize)intrinsicContentSize
 {
-    CGFloat height = self.font.lineHeight;
+    CGFloat height = self.font.lineHeight * self.defaultNumberOfLineDisplay;
     height += self.textContainerInset.top + self.textContainerInset.bottom;
     
     return CGSizeMake(UIViewNoIntrinsicMetric, height);
@@ -509,6 +509,8 @@ SLKPastableMediaType SLKPastableMediaTypeFromNSString(NSString *string)
     [self setFontName:font.fontName pointSize:font.pointSize withContentSizeCategory:contentSizeCategory];
     
     self.initialFontSize = font.pointSize;
+    
+    self.defaultNumberOfLineDisplay = 1;
 }
 
 - (void)setFontName:(NSString *)fontName pointSize:(CGFloat)pointSize withContentSizeCategory:(NSString *)contentSizeCategory
