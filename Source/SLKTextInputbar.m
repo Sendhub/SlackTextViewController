@@ -541,6 +541,13 @@ NSString * const SLKTextInputbarDidMoveNotification =   @"SLKTextInputbarDidMove
     [self addConstraints:self.charCountLabelVCs];
 }
 
+-(void)setDisplaySMSCountLabelOnTop:(BOOL)displaySMSCountLabelOnTop
+{
+    if(!self.smsCountLabel.hidden){
+        _displaySMSCountLabelOnTop = displaySMSCountLabelOnTop;
+        [self slk_setupViewConstraints];
+    }
+}
 
 #pragma mark - Text Editing
 
@@ -738,21 +745,59 @@ NSString * const SLKTextInputbarDidMoveNotification =   @"SLKTextInputbarDidMove
                               @"bottom" : @(self.contentInset.bottom),
                               };
     
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(left)-[leftButton(0)]-(<=left)-[textView]-(right)-[rightButton(0)]-(right)-|" options:0 metrics:metrics views:views]];
+    // Clear previous constraints to avoid duplication
+        [self removeConstraints:self.constraints];
+    
+   
 //    self.backgroundColor = [UIColor yellowColor];
 //    self.smsCountLabel.backgroundColor = [UIColor magentaColor];
 //    self.leftButton.backgroundColor = [UIColor redColor];
 //    self.rightButton.backgroundColor = [UIColor redColor];
+    
+    // Horizontal constraints
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(left)-[leftButton(0)]-(<=left)-[textView]-(right)-[rightButton(0)]-(right)-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(left@250)-[charCountLabel(<=50@1000)]-(right@750)-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[editorContentView]|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|" options:0 metrics:metrics views:views]];
+   
+    // Vertical constraints
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[contentView(0)]|" options:0 metrics:metrics views:views]];
     
     if(!self.smsCountLabel.hidden){
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[leftButton(0)]-(2)-[smsCountLabel(15)]-(<=bottom)-|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[rightButton]-(bottom)-[smsCountLabel(15)]-(<=bottom)-|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(left)-[smsCountLabel]-(right)-|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[editorContentView(0)]-(<=top)-[textView(0@999)]-(<=bottom)-[smsCountLabel(15)]-(<=bottom)-|" options:0 metrics:metrics views:views]];
+        
+        // Align bottoms of leftButton, rightButton, and textView
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.leftButton
+                                                         attribute:NSLayoutAttributeBottom
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.textView
+                                                         attribute:NSLayoutAttributeBottom
+                                                        multiplier:1.0
+                                                          constant:0]];
+
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.rightButton
+                                                         attribute:NSLayoutAttributeBottom
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.textView
+                                                         attribute:NSLayoutAttributeBottom
+                                                        multiplier:1.0
+                                                          constant:0]];
+        
+        if(!self.displaySMSCountLabelOnTop){
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[leftButton(0)]-(2)-[smsCountLabel(15)]-(<=bottom)-|" options:0 metrics:metrics views:views]];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[rightButton]-(0)-[smsCountLabel(15)]-(<=bottom)-|" options:0 metrics:metrics views:views]];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(left)-[smsCountLabel]-(right)-|" options:0 metrics:metrics views:views]];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[editorContentView(0)]-(<=top)-[textView(0@999)]-(<=bottom)-[smsCountLabel(15)]-(<=bottom)-|" options:0 metrics:metrics views:views]];
+        }else{
+            
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[editorContentView(0)]-(<=top)-[smsCountLabel(15)]-(<=top)-[textView(0@999)]-(<=bottom)-|" options:0 metrics:metrics views:views]];
+            
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[smsCountLabel]-(right)-[rightButton]-(<=bottom)-|" options:0 metrics:metrics views:views]];
+            
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[smsCountLabel]-(right)-[leftButton]-(<=bottom)-|" options:0 metrics:metrics views:views]];
+            
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(left)-[smsCountLabel]-(right)-[rightButton]-|" options:0 metrics:metrics views:views]];
+        }
+        
     }else {
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[leftButton(0)]-(0@750)-|" options:0 metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[rightButton]-(<=0)-|" options:0 metrics:metrics views:views]];

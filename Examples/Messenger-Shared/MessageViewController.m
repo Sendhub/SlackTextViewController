@@ -108,6 +108,9 @@
     [self.textInputbar.editorLeftButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
     [self.textInputbar.editorRightButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
     
+    self.textView.defaultNumberOfLineDisplay = 2;
+    self.textInputbar.displaySMSCountLabelOnTop = true;
+    
 #if DEBUG_CUSTOM_BOTTOM_VIEW
     // Example of view that can be added to the bottom of the text view
     

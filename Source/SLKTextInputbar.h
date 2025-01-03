@@ -143,6 +143,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** YES if the maxmimum character count has been exceeded. */
 @property (nonatomic, readonly) BOOL limitExceeded;
 
+/** YES if the SMS count label display on top side of UItextview. Default is No. */
+@property (nonatomic, readwrite) BOOL displaySMSCountLabelOnTop;
+
 /** The normal color used for character counter label. Default is lightGrayColor. */
 @property (nonatomic, strong, readwrite) UIColor *charCountLabelNormalColor;
 

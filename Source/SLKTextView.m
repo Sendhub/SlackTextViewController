@@ -84,6 +84,8 @@ static NSString *const SLKTextViewGenericFormattingSelectorPrefix = @"slk_format
     self.directionalLockEnabled = YES;
     self.dataDetectorTypes = UIDataDetectorTypeNone;
     
+    self.defaultNumberOfLineDisplay = 1;
+    
     [self slk_registerNotifications];
     
     [self addObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize)) options:NSKeyValueObservingOptionNew context:NULL];
@@ -509,8 +511,6 @@ SLKPastableMediaType SLKPastableMediaTypeFromNSString(NSString *string)
     [self setFontName:font.fontName pointSize:font.pointSize withContentSizeCategory:contentSizeCategory];
     
     self.initialFontSize = font.pointSize;
-    
-    self.defaultNumberOfLineDisplay = 1;
 }
 
 - (void)setFontName:(NSString *)fontName pointSize:(CGFloat)pointSize withContentSizeCategory:(NSString *)contentSizeCategory
