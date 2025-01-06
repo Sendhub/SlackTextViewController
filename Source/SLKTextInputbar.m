@@ -546,6 +546,7 @@ NSString * const SLKTextInputbarDidMoveNotification =   @"SLKTextInputbarDidMove
     if(!self.smsCountLabel.hidden){
         _displaySMSCountLabelOnTop = displaySMSCountLabelOnTop;
         [self slk_setupViewConstraints];
+        [self slk_updateConstraintConstants];
     }
 }
 
